@@ -7,19 +7,17 @@
 }
 
 body {
-  margin: 0 auto;
   background-color: #fafafa;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-family: Nunito sans;
-  overflow-x: hidden;
 }
 
 .global-container {
   width: 100%;
-  padding: 0px 80px;
+  padding: 0px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   /* background-color: red; */
 }
 
@@ -30,7 +28,7 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   background-color: #fafafa;
-  gap: 75px;
+  gap: 35px;
   margin-top: 40px;
   transition: all 0.3s ease-in-out;
   transition: min-height 0.3s ease;
@@ -44,7 +42,7 @@ body {
   border-radius: 5px;
   border: 1px soid red;
   width: 100%;
-  max-width: 264px;
+  max-width: 100%;
   min-width: 200px;
 }
 
@@ -219,20 +217,51 @@ body {
 /* Base styles (desktop first) */
 
 /* Tablets */
-@media (max-width: 1200px) {
+
+@media (max-width: 1199px) {
   .countrycontainer {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 899px) {
+  .countrycontainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 599px) {
   .countrycontainer {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .global-container {
+    width: 100%;
+    padding: 0px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .filtercomp-container {
     width: 100%;
     display: flex;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 399px) {
+  .countrycontainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .global-container {
+    width: 100%;
+    padding: 0px 40px;
+  }
+
+  .nav-container h2 {
+    font-size: 18px;
+    font-weight: 800;
   }
 }

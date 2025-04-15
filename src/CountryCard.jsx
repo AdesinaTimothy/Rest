@@ -5,7 +5,7 @@ export default function CountryCard({country}) {
     <div className='class-container'>
       <div className="card-top">
         <div className="flag-container">
-        <img src={country.flags.png} loading="lazy" alt="flag" />
+        <img src={country.flags.png} alt="country-flag" />
         </div>
         
       </div>
