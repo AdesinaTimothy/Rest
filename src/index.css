@@ -229,4 +229,10 @@ body {
   .countrycontainer {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .filtercomp-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 }
