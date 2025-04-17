@@ -62,6 +62,12 @@ body {
   max-width: 100%;
   min-width: 200px;
   cursor: pointer;
+  min-height: 380px;
+  transition-duration: 200ms;
+}
+
+.class-container:hover {
+  transform: scale(1.05);
 }
 
 .card-down {
@@ -300,10 +306,6 @@ body {
     flex-direction: column;
   }
 
-  /* .class-container {
-    max-width: 300px;
-  } */
-
   .nav-left h2 {
     font-size: 22.2px;
     font-weight: 600;
@@ -326,12 +328,15 @@ body {
   }
 }
 
-@media (max-width: 399px) {
+@media (max-width: 460px) {
   .nav-left h2 {
     font-size: 19.2px;
     font-weight: 600;
   }
 
+  .class-container {
+    padding-bottom: 20px;
+  }
   .nav-right h4 {
     font-size: 12.2px;
   }
@@ -356,9 +361,4 @@ body {
     width: 100%;
     padding: 0px 25px;
   }
-
-  /* .nav-container h2 {
-    font-size: 18px;
-    font-weight: 800;
-  } */
 }
