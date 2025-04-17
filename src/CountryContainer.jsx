@@ -49,7 +49,7 @@ function handleRegionChange (region) {
           
 
           <div className='filtercomp-container'>
-              <Search />
+              <Search darkMode={darkMode}/>
               <Filter region= {region}
               onRegionChange = {handleRegionChange}
               darkMode = {darkMode}

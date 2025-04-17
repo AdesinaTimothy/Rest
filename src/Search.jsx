@@ -1,11 +1,17 @@
 import React from 'react'
-import searchicon from "../src/assets/search.svg"
+import search1 from "../src/assets/search1.svg"
+import search from "../src/assets/search.svg"
 
-export default function Search() {
+export default function Search({darkMode}) {
   return (
     <div className='search-container'>
-        <img src={searchicon} alt="" />
-        <input type="text" id="search" placeholder="Search for a country" />
+        
+        <div className="search-image">
+          <img src={darkMode? search1 : search} alt="search-icon" />
+        </div>
+        <div className="search-input">
+          <input type="text" id="search" placeholder="Search for a country"/>
+        </div>
     </div>
   )
 }

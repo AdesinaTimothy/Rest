@@ -142,6 +142,31 @@ body {
   border-radius: 5px;
 }
 
+.search-container {
+  display: flex;
+  position: relative;
+  padding: 6px 14px;
+  border-radius: 8px;
+  align-items: center;
+  gap: 15px;
+  background-color: var(--nav-background);
+}
+
+.search-container .search-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background-color: transparent;
+  font-family: inherit;
+  color: var(--head-text);
+}
+
+.search-container .search-input input::placeholder {
+  color: var(--head-text);
+  font-weight: 300;
+}
+
 // NAVBAR DESIGN
 
 .nav-container h2 {
@@ -182,6 +207,7 @@ body {
 
 .nav-left h2 {
   color: var(--head-text);
+  font-weight: 800;
 }
 
 .nav-section {
@@ -196,20 +222,18 @@ body {
 .filter-container .select-div select option {
   padding: 10px;
   font-size: 1rem;
-  color: #333;
+  color: var(--head-text);
   background-color: #fff;
   margin: 5px 0px;
 }
 
 .filter-container {
   position: relative;
-  padding: 0px 16px;
+  padding: 0px 26px;
   border-radius: 8px;
   display: flex;
   align-items: center;
   gap: 15px;
-  /* background-color: red; */
-  max-width: 280px;
   background-color: var(--nav-background);
 }
 
@@ -234,46 +258,6 @@ body {
   margin-bottom: 60px;
 }
 
-//Search
-.search-container {
-  min-height: 56px;
-  background-color: transparent;
-  padding: 5px 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
-
-.search-container img {
-  width: 18px;
-  height: 18px;
-  color: #848484;
-}
-
-.search-container input {
-  min-height: 56px;
-  background: transparent;
-  padding: 5px 10px;
-  border: none;
-  min-width: 480px;
-  outline: none;
-}
-
-.search-container input::placeholder {
-  color: #848484;
-}
-
-//Dark and light mode session of the design
-
-.dark-mode {
-}
-
-// mdeia quries
-/* Base styles (desktop first) */
-
-/* Tablets */
-
 @media (max-width: 1199px) {
   .countrycontainer {
     grid-template-columns: repeat(3, 1fr);
@@ -283,6 +267,17 @@ body {
 @media (max-width: 899px) {
   .countrycontainer {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .filtercomp-container {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    margin-bottom: 30px;
   }
 }
 
@@ -307,17 +302,38 @@ body {
 }
 
 @media (max-width: 399px) {
+  .nav-left h2 {
+    font-size: 19.2px;
+    font-weight: 600;
+  }
+
+  .nav-right h4 {
+    font-size: 12.2px;
+  }
+
+  .nav-left img {
+    width: 22px;
+  }
+
+  .nav-left {
+    gap: 10px;
+  }
+
+  .nav-right {
+    gap: 2px;
+  }
+
   .countrycontainer {
     grid-template-columns: repeat(1, 1fr);
   }
 
   .global-container {
     width: 100%;
-    padding: 0px 40px;
+    padding: 0px 25px;
   }
 
-  .nav-container h2 {
+  /* .nav-container h2 {
     font-size: 18px;
     font-weight: 800;
-  }
+  } */
 }
