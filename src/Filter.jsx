@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import down from "../src/assets/down.svg"
+import down1 from "../src/assets/down1.svg"
 
-export default function Filter({region, onRegionChange}) {
+export default function Filter({region, onRegionChange, darkMode}) {
     
     
 
@@ -14,18 +16,25 @@ export default function Filter({region, onRegionChange}) {
   return (
     <div className='filter-container'>
         
+        <div className="select-div">
         <select 
-        id="regionFilter"
-        value={region}
-        onChange={handleRegionSelect}
-        >
-        <option value="">Filter by Regions</option>
-        <option value="Africa">Africa</option>
-        <option value="Americas">Americas</option>
-        <option value="Asia">Asia</option>
-        <option value="Europe">Europe</option>
-        <option value="Oceania">Oceania</option>
+          id="regionFilter"
+          value={region}
+          onChange={handleRegionSelect}
+          >
+          <option value="">Filter by Regions</option>
+          <option value="Africa">Africa</option>
+          <option value="Americas">Americas</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="Oceania">Oceania</option>
         </select>
+        </div>
+        
+
+        <div className="arrow-div">
+          <img src={darkMode? down : down1} alt="arrow-down" />
+        </div>
     </div>
   )
 }

@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div>
-      <Nav />
+      {/* <Nav /> */}
       {/* <FilterComp/> */}
       <CountryContainer />
     </div>

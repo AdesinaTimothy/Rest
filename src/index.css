@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
+:root {
+  --background: #fafafa;
+  --nav-background: #ffffff;
+  --card-background: #ffffff;
+  --head-text: #111517;
+  --p-text: #111517;
+}
+
+.dark-mode {
+  --background: #202c36;
+  --card-background: #2b3844;
+  --head-text: #ffffff;
+  --p-text: #ffffff;
+  --nav-background: #2b3844;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,8 +23,9 @@
 }
 
 body {
-  background-color: #fafafa;
+  background-color: var(--background);
   font-family: Nunito sans;
+  margin-bottom: 60px;
 }
 
 .global-container {
@@ -27,7 +44,7 @@ body {
   min-height: 600px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  background-color: #fafafa;
+  background-color: var(--background);
   gap: 35px;
   margin-top: 40px;
   transition: all 0.3s ease-in-out;
@@ -38,12 +55,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  background-color: #ffffff;
+  background-color: var(--card-background);
   border-radius: 5px;
   border: 1px soid red;
   width: 100%;
   max-width: 100%;
   min-width: 200px;
+  cursor: pointer;
 }
 
 .card-down {
@@ -58,6 +76,7 @@ body {
 .country {
   margin-bottom: 16px;
   font-size: 18px;
+  color: var(--head-text);
 }
 
 .country h2 {
@@ -74,10 +93,12 @@ body {
 
 .population p {
   font-weight: 300;
+  color: var(--p-text);
 }
 
 .population h3 {
   font-weight: 600;
+  color: var(--head-text);
 }
 
 .region {
@@ -89,10 +110,12 @@ body {
 
 .region p {
   font-weight: 300;
+  color: var(--p-text);
 }
 
 .region h3 {
   font-weight: 600;
+  color: var(--head-text);
 }
 
 .capital {
@@ -104,10 +127,12 @@ body {
 
 .capital p {
   font-weight: 300;
+  color: var(--p-text);
 }
 
 .capital h3 {
   font-weight: 600;
+  color: var(--head-text);
 }
 
 .flag-container img {
@@ -131,7 +156,6 @@ body {
   align-items: center;
   justify-content: space-between;
   min-height: 78px;
-  /* background-color: red; */
 }
 
 .nav-right {
@@ -139,40 +163,67 @@ body {
   align-items: center;
   justify-content: space-box;
   gap: 6px;
+  cursor: pointer;
 }
 
 .nav-right h4 {
   font-size: 16px;
   font-weight: 600;
+  color: var(--head-text);
+}
+
+.nav-left {
+  height: 100%;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-left h2 {
+  color: var(--head-text);
 }
 
 .nav-section {
   /* width: 100%; */
   box-shadow: 0px 4px 4px -4px rgba(0, 0, 0, 0.2);
   margin-bottom: 80px;
+  background-color: var(--nav-background);
 }
 
 //Filter Design
 
-.filter-container {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 12px 16px;
-  border-radius: 12px;
-  /* max-width: 280px; */
+.filter-container .select-div select option {
+  padding: 10px;
+  font-size: 1rem;
+  color: #333;
+  background-color: #fff;
+  margin: 5px 0px;
 }
 
-.filter-container select {
+.filter-container {
+  position: relative;
+  padding: 0px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  /* background-color: red; */
+  max-width: 280px;
+  background-color: var(--nav-background);
+}
+
+.filter-container .select-div select {
   appearance: none;
-  padding: 10px 12px;
+  padding: 10px 16px;
   border-radius: 8px;
   font-size: 1rem;
   font-family: inherit;
-  background-color: transparent;
+  background-color: var(--nav-background);
   cursor: pointer;
   border: none;
   outline: none;
+  color: var(--head-text);
 }
 
 .filtercomp-container {
@@ -211,6 +262,11 @@ body {
 
 .search-container input::placeholder {
   color: #848484;
+}
+
+//Dark and light mode session of the design
+
+.dark-mode {
 }
 
 // mdeia quries

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import CountryCard from './CountryCard';
 import Filter from './Filter';
 import Search from './Search';
+import Nav from './Nav';
 
 
 export default function CountryContainer() {
@@ -10,6 +11,8 @@ const [countries, setCountries] = useState([]);
 const [filteredCountries, setFilteredCountries] = useState([]);
 const [loading, setLoading] = useState(true); 
 const [region, setRegion] = useState("")
+const [darkMode, setDarkMode] = useState(false)
+
 
 
 useEffect(() => {
@@ -25,6 +28,7 @@ useEffect(() => {
 }, []);
 
 
+//This function actually gets the "region" variable and compare it with the country.region
 function handleRegionChange (region) {
   setRegion(region);
   if( region === "") {
@@ -35,15 +39,20 @@ function handleRegionChange (region) {
   }
 }
 
-// best timo 
 
   return (
+    <div className="all">
 
-    <div className="global-container">
+      <Nav darkMode= {darkMode} handleDarkMode = {setDarkMode}/>
+
+      <div className="global-container">
+          
+
           <div className='filtercomp-container'>
               <Search />
               <Filter region= {region}
               onRegionChange = {handleRegionChange}
+              darkMode = {darkMode}
               />
           </div>
 
@@ -53,6 +62,9 @@ function handleRegionChange (region) {
               ))}
          </div>
     </div>
+
+    </div>
+    
 
     
   )
