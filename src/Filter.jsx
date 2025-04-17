@@ -20,7 +20,7 @@ export default function Filter({region, onRegionChange, darkMode}) {
         <select 
           id="regionFilter"
           value={region}
-          onChange={handleRegionSelect}
+          onChange={(e) =>handleRegionSelect(e)}
           >
           <option value="">Filter by Regions</option>
           <option value="Africa">Africa</option>

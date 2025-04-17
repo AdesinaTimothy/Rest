@@ -299,6 +299,31 @@ body {
     display: flex;
     flex-direction: column;
   }
+
+  /* .class-container {
+    max-width: 300px;
+  } */
+
+  .nav-left h2 {
+    font-size: 22.2px;
+    font-weight: 600;
+  }
+
+  .nav-right h4 {
+    font-size: 16px;
+  }
+
+  .nav-left img {
+    width: 22px;
+  }
+
+  .nav-left {
+    gap: 10px;
+  }
+
+  .nav-right {
+    gap: 2px;
+  }
 }
 
 @media (max-width: 399px) {

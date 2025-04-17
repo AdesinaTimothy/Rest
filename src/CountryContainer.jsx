@@ -12,6 +12,7 @@ const [filteredCountries, setFilteredCountries] = useState([]);
 const [loading, setLoading] = useState(true); 
 const [region, setRegion] = useState("")
 const [darkMode, setDarkMode] = useState(false)
+const [searchTerm, setSearchTerm] = useState("");
 
 
 
@@ -28,17 +29,32 @@ useEffect(() => {
 }, []);
 
 
-//This function actually gets the "region" variable and compare it with the country.region
+//This the function that filters the countries based on the region selected
+
 function handleRegionChange (region) {
   setRegion(region);
   if( region === "") {
     setFilteredCountries(countries)
   } else {
-    const filteredregions = countries.filter((country) => country.region === region);
-    setFilteredCountries(filteredregions)
+    const filtered = countries.filter((country) => country.region === region);
+    setFilteredCountries(filtered);
   }
 }
 
+//This is the function that filters the countries based on the input search fields
+    function searchCountriesHandler (searchTerm) {
+      setSearchTerm(searchTerm);
+      let filtered;
+
+      if ( searchTerm === "") {
+        filtered = countries
+      } else {
+        filtered = countries.filter((country) => 
+          country.name.common.toLowerCase().includes(searchTerm.toLowerCase()))
+      };
+
+      setFilteredCountries(filtered)
+    }
 
   return (
     <div className="all">
@@ -49,7 +65,7 @@ function handleRegionChange (region) {
           
 
           <div className='filtercomp-container'>
-              <Search darkMode={darkMode}/>
+              <Search darkMode={darkMode} searchTerm={searchTerm} onSearchChange = {searchCountriesHandler}/>
               <Filter region= {region}
               onRegionChange = {handleRegionChange}
               darkMode = {darkMode}
@@ -60,6 +76,7 @@ function handleRegionChange (region) {
               {filteredCountries.map((country) => (
                 <CountryCard key = {country.cca3} country = {country}/>
               ))}
+              
          </div>
     </div>
 

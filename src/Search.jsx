@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import search1 from "../src/assets/search1.svg"
 import search from "../src/assets/search.svg"
 
-export default function Search({darkMode}) {
+export default function Search({darkMode, searchTerm, onSearchChange}) {
+
+  
+
+  function handleSearchTime (e) {
+      const searchedTerm = e.target.value;
+      onSearchChange(searchedTerm)
+      console.log(searchedTerm)
+  }
+
   return (
     <div className='search-container'>
         
@@ -10,7 +19,13 @@ export default function Search({darkMode}) {
           <img src={darkMode? search1 : search} alt="search-icon" />
         </div>
         <div className="search-input">
-          <input type="text" id="search" placeholder="Search for a country"/>
+          <input 
+          type="text" 
+          id="search" 
+          placeholder="Search for a country"
+          value={searchTerm}
+          onChange={(e) => handleSearchTime(e)}
+          />
         </div>
     </div>
   )
