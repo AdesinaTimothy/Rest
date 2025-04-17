@@ -330,7 +330,7 @@ body {
 
 @media (max-width: 460px) {
   .nav-left h2 {
-    font-size: 19.2px;
+    font-size: 18px;
     font-weight: 600;
   }
 
@@ -338,7 +338,7 @@ body {
     padding-bottom: 20px;
   }
   .nav-right h4 {
-    font-size: 12.2px;
+    font-size: 13.2px;
   }
 
   .nav-left img {
