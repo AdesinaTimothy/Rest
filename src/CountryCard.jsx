@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function CountryCard({country}) {
+export default function CountryCard({country, onClick}) {
   return (
-    <div className='class-container'>
+    <div className='class-container' onClick={onClick}>
       <div className="card-top">
         <div className="flag-container">
         <img src={country.flags.png} alt="country-flag" />

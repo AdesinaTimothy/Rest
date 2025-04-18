@@ -3,16 +3,18 @@ import CountryCard from './CountryCard';
 import Filter from './Filter';
 import Search from './Search';
 import Nav from './Nav';
+import { useNavigate } from "react-router-dom";
 
 
 export default function CountryContainer() {
 
 const [countries, setCountries] = useState([]); 
 const [filteredCountries, setFilteredCountries] = useState([]);
-const [loading, setLoading] = useState(true); 
 const [region, setRegion] = useState("")
 const [darkMode, setDarkMode] = useState(false)
 const [searchTerm, setSearchTerm] = useState("");
+
+const navigate = useNavigate();
 
 
 
@@ -22,7 +24,6 @@ useEffect(() => {
         const result = await response.json();
         setCountries(result);
         setFilteredCountries(result);
-        setLoading(false);
      } ;
 
      fetchData();
@@ -56,6 +57,12 @@ function handleRegionChange (region) {
       setFilteredCountries(filtered)
     }
 
+    function handleOnClick (country) {
+      const clickedCountry = country.name;
+      console.log(clickedCountry)
+      navigate(`countrypage`, {state: {country}});
+    }
+
   return (
     <div className="all">
 
@@ -74,10 +81,10 @@ function handleRegionChange (region) {
 
           <div className='countrycontainer'>
               {filteredCountries.map((country) => (
-                <CountryCard key = {country.cca3} country = {country}/>
+                <CountryCard key = {country.cca3} country = {country} onClick = {() => handleOnClick(country)}/>
               ))}
               
-         </div>
+          </div>
     </div>
 
     </div>
