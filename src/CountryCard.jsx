@@ -16,17 +16,17 @@ export default function CountryCard({country, onClick}) {
         </div>
 
 
-        <div className="population"> 
+        <div className="population card-small small-p "> 
             <h3>Population: </h3>  
             <p>{country.population}</p> 
         </div>
 
-        <div className="region">
+        <div className="region card-small small-p ">
             <h3>Region: </h3>
             <p>{country.region}</p> 
         </div>
 
-        <div className="capital">
+        <div className="capital card-small small-p ">
             <h3>Capital: </h3>
             <p>{country.capital}</p> 
         </div>
