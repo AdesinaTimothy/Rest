@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import Nav from './Nav';
+import backicon from '../src/assets/call-made.svg'
 
 export default function CountryDetails( ) {
     // const [allCountries, setAllCountries] = useState([]);
@@ -39,6 +40,7 @@ export default function CountryDetails( ) {
         <div className='global-container'>
        
             <div className="back-container" onClick={backToHomePage}>
+                <img src={backicon} alt="" />
                 <p>back</p>
             </div>
 
