@@ -1,28 +1,48 @@
-import React from 'react'
-import { useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom';
 import Nav from './Nav';
 
-export default function CountryDetails({darkMode}) {
+export default function CountryDetails( ) {
+    // const [allCountries, setAllCountries] = useState([]);
+
     const location = useLocation();
     const country = location.state?.country;
-   
-    // const currencies = country.currencies
-    // const currencyName = currencies.name
-
+    const countries = location.state?.countries;
     const currencyName = Object.values(country.currencies).map(c => c.name);
     const languages = Object.values(country.languages);
-    console.log(languages);
+    const borders = country.borders || [];
+    
+    const navigate = useNavigate();
+
+    function backToHomePage () {
+        navigate('/');
+    }
+
+    const joinCodeToCountry = {};
+
+    countries.forEach((c) => {
+        joinCodeToCountry[c.cca3] = c.name.common
+    })
+
+    const borderCountryNames = borders.map((code) => 
+    joinCodeToCountry[code]);
+
+    console.log(borderCountryNames)
+
+   
 
 
-  return (
+
+    return (
     <div className="countrypage-section">
-        <Nav />
+        <Nav/>
         <div className='global-container'>
        
-            <div className="back-container">
+            <div className="back-container" onClick={backToHomePage}>
+                <p>back</p>
+            </div>
 
-        </div>
-        <div className="country-details-container">
+            <div className="country-details-container">
 
             <div className="details-left">
                 <div className="details-image">
@@ -77,19 +97,22 @@ export default function CountryDetails({darkMode}) {
 
                         <div className="languages card-small">
                         <h3 className='small-h3'>Languages:</h3>
-                        <p>{languages.join(" ")}</p>
+                        <p>{languages.join(", ")}</p>
                         </div>
                     </div>
                 </div>
 
                 <div className="border-countries">
-                    <div className="heading-border">
+                    <div className="heading-border card-small">
                         <h3 className='small-h3'>Border Countries:</h3>
                     </div>
                     <div className="bordeers">
-                        <div className="border-country">France</div>
-                        <div className="border-country">Germany</div>
-                        <div className="border-country">Netherlands</div>
+                        {borderCountryNames.map((each) => (
+                            <div key={each} className="border-country-card">
+                                {each}
+                            </div>
+                        ))}
+
                     </div>
                 </div>
             </div>
