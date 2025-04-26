@@ -60,9 +60,9 @@ function handleRegionChange (region) {
     }
 
     function handleOnClick (country) {
-      const clickedCountry = country.name;
+      const clickedCountry = country.name.common;
       console.log(clickedCountry)
-      navigate(`countrypage`, {state: {country , countries}});
+      navigate(`/countrypage/${clickedCountry}`, {state: {country , countries}});
     }
 
   return (

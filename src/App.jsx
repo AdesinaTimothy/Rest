@@ -13,7 +13,7 @@ function App() {
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path= "/" element = {<RootLayout/>}>
       <Route index element = {<CountryContainer />} />
-      <Route path = "countrypage" element={<CountryDetails />}/>
+      <Route path = "countrypage/:countryName" element={<CountryDetails />}/>
     </Route>
   ))
 

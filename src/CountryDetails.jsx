@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import Nav from './Nav';
 import backicon from '../src/assets/call-made.svg'
 import backicon2 from '../src/assets/call-made22.svg'
@@ -7,16 +7,20 @@ import { darkModeContext } from './App';
 
 
 
+
 export default function CountryDetails() {
 
     const {darkMode, setDarkMode} = useContext(darkModeContext);
 
+    const { countryName } = useParams();
     const location = useLocation();
     const country = location.state?.country;
     const countries = location.state?.countries;
     const currencyName = Object.values(country.currencies).map(c => c.name);
     const languages = Object.values(country.languages);
     const borders = country.borders || [];
+
+    console.log(countryName);
     
     const navigate = useNavigate();
 
