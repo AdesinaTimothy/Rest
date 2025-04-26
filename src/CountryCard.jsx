@@ -1,6 +1,9 @@
 import React from 'react'
 
+
 export default function CountryCard({country, onClick}) {
+
+
   return (
     <div className='class-container' onClick={onClick}>
       <div className="card-top">

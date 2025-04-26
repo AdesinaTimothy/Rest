@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import moon from "./assets/moon.svg";
 import home from "../src/assets/home.svg"
 import home1 from "../src/assets/home1.svg"
 import moon2 from "../src/assets/moon2.svg"
+import { darkModeContext } from './App';
 
-export default function Nav({darkMode, handleDarkMode}) {
+export default function Nav() {
+
+  const {darkMode, setDarkMode} = useContext(darkModeContext);
 
 
   useEffect(() => {
@@ -23,7 +26,7 @@ export default function Nav({darkMode, handleDarkMode}) {
             <img src={darkMode? home1 : home} alt="" />
             <h2>Where in the world?</h2>
         </div>
-        <div className="nav-right" onClick={() => handleDarkMode(!darkMode)}>
+        <div className="nav-right" onClick={() => setDarkMode(!darkMode)}>
             <img src={darkMode? moon2 : moon} alt="" />
             <h4>Dark Mode</h4>
         </div>

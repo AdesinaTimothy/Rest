@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import Nav from './Nav';
 import backicon from '../src/assets/call-made.svg'
+import backicon2 from '../src/assets/call-made22.svg'
+import { darkModeContext } from './App';
 
-export default function CountryDetails( ) {
-    // const [allCountries, setAllCountries] = useState([]);
+
+
+export default function CountryDetails() {
+
+    const {darkMode, setDarkMode} = useContext(darkModeContext);
 
     const location = useLocation();
     const country = location.state?.country;
@@ -30,9 +35,6 @@ export default function CountryDetails( ) {
 
     console.log(borderCountryNames)
 
-   
-
-
 
     return (
     <div className="countrypage-section">
@@ -40,7 +42,7 @@ export default function CountryDetails( ) {
         <div className='global-container'>
        
             <div className="back-container" onClick={backToHomePage}>
-                <img src={backicon} alt="" />
+                <img src={ darkMode? backicon2 : backicon} alt="back-icon" />
                 <p>back</p>
             </div>
 
@@ -111,7 +113,9 @@ export default function CountryDetails( ) {
                     <div className="bordeers">
                         {borderCountryNames.map((each) => (
                             <div key={each} className="border-country-card">
+                                <p>
                                 {each}
+                                </p>
                             </div>
                         ))}
 

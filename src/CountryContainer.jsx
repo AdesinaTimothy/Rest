@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import CountryCard from './CountryCard';
 import Filter from './Filter';
 import Search from './Search';
 import Nav from './Nav';
 import { useNavigate } from "react-router-dom";
+import { darkModeContext } from './App';
 
 
 export default function CountryContainer() {
 
+const {darkMode, setDarkMode} = useContext(darkModeContext);
+
 const [countries, setCountries] = useState([]); 
 const [filteredCountries, setFilteredCountries] = useState([]);
 const [region, setRegion] = useState("")
-const [darkMode, setDarkMode] = useState(false)
 const [searchTerm, setSearchTerm] = useState("");
 
 const navigate = useNavigate();
@@ -64,6 +66,7 @@ function handleRegionChange (region) {
     }
 
   return (
+    
     <div className="all">
 
       <Nav darkMode= {darkMode} handleDarkMode = {setDarkMode}/>
@@ -88,8 +91,6 @@ function handleRegionChange (region) {
     </div>
 
     </div>
-    
-
-    
+  
   )
 }
