@@ -4,10 +4,14 @@ import home from "../src/assets/home.svg"
 import home1 from "../src/assets/home1.svg"
 import moon2 from "../src/assets/moon2.svg"
 import { darkModeContext } from './App';
+import { useNavigate } from 'react-router-dom';
+
+
 
 export default function Nav() {
 
   const {darkMode, setDarkMode} = useContext(darkModeContext);
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -18,11 +22,15 @@ export default function Nav() {
     }
   }, [darkMode])
 
+  function goHome () {
+    navigate('/')
+  }
+
   return (
     <nav className='nav-section'>
       <div className="global-container">
         <div className="nav-container">
-        <div className="nav-left">
+        <div className="nav-left" onClick={goHome}>
             <img src={darkMode? home1 : home} alt="" />
             <h2>Where in the world?</h2>
         </div>
