@@ -11,7 +11,6 @@ import { darkModeContext } from './App';
 export default function CountryDetails() {
 
     const {darkMode, setDarkMode} = useContext(darkModeContext);
-
     const { countryName } = useParams();
     const location = useLocation();
     const country = location.state?.country;
@@ -20,7 +19,6 @@ export default function CountryDetails() {
     const languages = Object.values(country.languages);
     const borders = country.borders || [];
 
-    console.log(countryName);
     
     const navigate = useNavigate();
 
@@ -116,7 +114,23 @@ export default function CountryDetails() {
                     </div>
                     <div className="bordeers">
                         {borderCountryNames.map((each) => (
-                            <div key={each} className="border-country-card">
+                            <div 
+                            key={each} 
+                            className="border-country-card"
+                            onClick= {() => {
+                                const selectedCountry = countries.find((c) => c.name.common === each)
+                                if (selectedCountry) {
+                                    navigate(`/countrypage/${encodeURIComponent(each)}`, {
+                                        state: {
+                                          country: selectedCountry,
+                                          countries: countries
+                                        }
+                                      });
+                                }
+
+                            }
+                            }
+                            >
                                 <p>
                                 {each}
                                 </p>
