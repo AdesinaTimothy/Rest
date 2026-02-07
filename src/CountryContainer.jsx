@@ -22,7 +22,10 @@ const navigate = useNavigate();
 
 useEffect(() => {
      const fetchData = async () => {
-        const response = await fetch("https://restcountries.com/v3.1/all");
+        // const response = await fetch("https://restcountries.com/v3.1/all");
+        const response = await fetch(
+        "https://restcountries.com/v3.1/all?fields=name,cca3,flags,region,population,capital"
+      );
         const result = await response.json();
         setCountries(result);
         setFilteredCountries(result);
